@@ -31,37 +31,37 @@ public class GammeNormale : SpawnerNote
 
   public override void Do(GameObject note, Vector3 startPositionMesure, int positionDansMesure)
   {
-    note.transform.position = new Vector3(startPositionMesure.x + positionNoteToCm[positionDansMesure], positionGameNormal, startPositionMesure.z);
+    note.transform.position = new Vector3(startPositionMesure.x + positionNoteToCm[positionDansMesure], startPositionMesure.y, startPositionMesure.z);
     SpawnBarreNoire(note.transform, 0);
   }
 
   public override void Re(GameObject note, Vector3 startPositionMesure, int positionDansMesure)
   {
-    note.transform.position = new Vector3(startPositionMesure.x + positionNoteToCm[positionDansMesure], positionGameNormal + ton, startPositionMesure.z);
+    note.transform.position = new Vector3(startPositionMesure.x + positionNoteToCm[positionDansMesure], startPositionMesure.y + ton, startPositionMesure.z);
   }
 
   public override void Mi(GameObject note, Vector3 startPositionMesure, int positionDansMesure)
   {
-    note.transform.position = new Vector3(startPositionMesure.x + positionNoteToCm[positionDansMesure], positionGameNormal + ton * 2, startPositionMesure.z);
+    note.transform.position = new Vector3(startPositionMesure.x + positionNoteToCm[positionDansMesure], startPositionMesure.y + ton * 2, startPositionMesure.z);
   }
 
   public override void Fa(GameObject note, Vector3 startPositionMesure, int positionDansMesure)
   {
-    note.transform.position = new Vector3(startPositionMesure.x + positionNoteToCm[positionDansMesure], positionGameNormal + ton * 3, startPositionMesure.z);
+    note.transform.position = new Vector3(startPositionMesure.x + positionNoteToCm[positionDansMesure], startPositionMesure.y + ton * 3, startPositionMesure.z);
   }
 
   public override void Sol(GameObject note, Vector3 startPositionMesure, int positionDansMesure)
   {
-    note.transform.position = new Vector3(startPositionMesure.x + positionNoteToCm[positionDansMesure], positionGameNormal + ton * 4, startPositionMesure.z);
+    note.transform.position = new Vector3(startPositionMesure.x + positionNoteToCm[positionDansMesure], startPositionMesure.y + ton * 4, startPositionMesure.z);
   }
 
   public override void La(GameObject note, Vector3 startPositionMesure, int positionDansMesure)
   {
-    note.transform.position = new Vector3(startPositionMesure.x + positionNoteToCm[positionDansMesure], positionGameNormal + ton * 5, startPositionMesure.z);
+    note.transform.position = new Vector3(startPositionMesure.x + positionNoteToCm[positionDansMesure], startPositionMesure.y + ton * 5, startPositionMesure.z);
   }
 
   public override void Si(GameObject note, Vector3 startPositionMesure, int positionDansMesure)
   {
-    note.transform.position = new Vector3(startPositionMesure.x + positionNoteToCm[positionDansMesure], positionGameNormal + ton * 6, startPositionMesure.z);
+    note.transform.position = new Vector3(startPositionMesure.x + positionNoteToCm[positionDansMesure], startPositionMesure.y + ton * 6, startPositionMesure.z);
   }
 }

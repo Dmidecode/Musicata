@@ -5,7 +5,7 @@
     public Pause()
     {
       TypeCadenceNote = TypeCadenceNote.Pause;
-      Tempo = 4f;
+      Temps = 4f;
     }
   }
 }

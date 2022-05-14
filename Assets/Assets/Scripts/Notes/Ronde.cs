@@ -5,7 +5,7 @@
     public Ronde()
     {
       TypeCadenceNote = TypeCadenceNote.Ronde;
-      Tempo = 4f;
+      Temps = 4f;
     }
   }
 }

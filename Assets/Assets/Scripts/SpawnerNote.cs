@@ -12,7 +12,7 @@ public abstract class SpawnerNote : MonoBehaviour
   protected const float ton = 0.5f;
   protected float espacement = 2.2f;
   protected const float gammeTon = 3.5f;
-  protected const float positionGameNormal = -5f;
+  //protected const float positionGameNormal = 0f;
   protected const float positionHampeY = 1.651f;
   protected const float positionHampeX = 0.442f;
   protected const float hauteurHampeY = 3.4f;
@@ -77,14 +77,14 @@ public abstract class SpawnerNote : MonoBehaviour
             break;
         }
 
-        spawner.AddNote(noteSuivante.TypeNote, noteSuivante.TypeCadenceNote, noteSuivante.IsPointe, mesure);
+        spawner.AddNote(noteSuivante.TypeNote, noteSuivante.TypeCadenceNote, noteSuivante.TypeAlteration, noteSuivante.IsPointe, mesure);
       }
 
-      LinkCroches(mesure.GetNotes());
+      LinkCroches(mesure);
     }
   }
 
-  public void AddNote(TypeNote typeNote, TypeCadenceNote typeCadenceNote, bool isPointe, ManageMesure mesure)
+  public void AddNote(TypeNote typeNote, TypeCadenceNote typeCadenceNote, TypeAlteration typeAlteration, bool isPointe, ManageMesure mesure)
   {
     GameObject noteResource = null;
     switch (typeCadenceNote)
@@ -144,19 +144,36 @@ public abstract class SpawnerNote : MonoBehaviour
       }
 
       funcNote(note, mesure.MesureStart.position, mesure.GetPosition());
+
+      if (isPointe)
+        Instantiate(Resources.Load("Prefab/Notes/Pointe") as GameObject, note.transform);
+
+      if (typeAlteration > TypeAlteration.None)
+        AddAlteration(note, typeAlteration);
     }
     else
       AddSilence(note, mesure.MesureStart.position, mesure.GetPosition());
 
-    if (isPointe)
-    {
-      Instantiate(Resources.Load("Prefab/Notes/Pointe") as GameObject, note.transform);
-    }
-
-    mesure.AddNote(typeCadenceNote, typeNote, TypeGamme, isPointe, note);
+    mesure.AddNote(typeCadenceNote, typeNote, TypeGamme, typeAlteration, isPointe, note);
 
     if (typeCadenceNote == TypeCadenceNote.Croche)
-      LinkCroches(mesure.GetNotes());
+      LinkCroches(mesure);
+  }
+
+  private void AddAlteration(GameObject note, TypeAlteration typeAlteration)
+  {
+    switch (typeAlteration)
+    {
+      case TypeAlteration.Becarre:
+        Instantiate(Resources.Load("Prefab/Alterations/Becarre") as GameObject, note.transform);
+        break;
+      case TypeAlteration.Diese:
+        Instantiate(Resources.Load("Prefab/Alterations/Diese") as GameObject, note.transform);
+        break;
+      case TypeAlteration.Bemol:
+        Instantiate(Resources.Load("Prefab/Alterations/Bemol") as GameObject, note.transform);
+        break;
+    }
   }
 
   private void AddSilence(GameObject note, Vector3 startPositionMesure, int positionDansMesure)
@@ -164,8 +181,9 @@ public abstract class SpawnerNote : MonoBehaviour
     note.transform.position = new Vector3(startPositionMesure.x + positionNoteToCm[positionDansMesure], note.transform.position.y, startPositionMesure.z);
   }
 
-  private void LinkCroches(List<Note> notes)
+  private void LinkCroches(ManageMesure mesure)
   {
+    var notes = mesure.GetNotes();
     if (notes.Count < 1) return;
     Note addedNote = notes[notes.Count - 1];
 
@@ -198,7 +216,7 @@ public abstract class SpawnerNote : MonoBehaviour
       referenceNote = croches.OrderByDescending(x => x.TypeGamme).ThenByDescending(x => x.TypeNote).FirstOrDefault();
 
     // Dans quelle gamme je suis + (le ton de la note) + la position de la hampe + la hauteur de la hampe
-    float positionWorldHampeY = CalculatePositionWorldHampeY(hampeInferieur, referenceNote);
+    float positionWorldHampeY = CalculatePositionWorldHampeY(hampeInferieur, referenceNote, mesure);
 
     // Ajouter une hampe basique en fonction de la croche initial
     AddBasicHampe(croches, hampeInferieur, positionWorldHampeY);
@@ -247,7 +265,7 @@ public abstract class SpawnerNote : MonoBehaviour
     }
   }
 
-  private static float CalculatePositionWorldHampeY(bool hampeInferieur, Note referenceNote)
+  private static float CalculatePositionWorldHampeY(bool hampeInferieur, Note referenceNote, ManageMesure mesure)
   {
     float gammeTonPosition = 0f;
     if (referenceNote.TypeGamme == TypeGamme.Basse)
@@ -255,7 +273,7 @@ public abstract class SpawnerNote : MonoBehaviour
     else if (referenceNote.TypeGamme == TypeGamme.Haute)
       gammeTonPosition = gammeTon;
 
-    float positionWorldHampeY = (positionGameNormal + gammeTonPosition) + (ton * (int)referenceNote.TypeNote);
+    float positionWorldHampeY = (mesure.MesureStart.position.y + gammeTonPosition) + (ton * (int)referenceNote.TypeNote);
     if (hampeInferieur)
       positionWorldHampeY -= positionHampeY + hauteurHampeY;
     else

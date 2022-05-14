@@ -5,7 +5,7 @@
     public Soupir()
     {
       TypeCadenceNote = TypeCadenceNote.Soupir;
-      Tempo = 1f;
+      Temps = 1f;
     }
   }
 }

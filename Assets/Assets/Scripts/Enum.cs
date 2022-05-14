@@ -6,6 +6,14 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts
 {
+  public enum TypeAlteration
+  {
+    None,
+    Becarre,
+    Diese,
+    Bemol
+  }
+
   public enum TypeGamme
   {
     Basse,
@@ -23,7 +31,6 @@ namespace Assets.Scripts
     La,
     Si
   }
-
 
   public enum TypeCadenceNote
   {

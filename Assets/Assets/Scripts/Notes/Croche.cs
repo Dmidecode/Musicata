@@ -5,7 +5,7 @@
     public Croche()
     {
       TypeCadenceNote = TypeCadenceNote.Croche;
-      Tempo = 0.5f;
+      Temps = 0.5f;
     }
   }
 }

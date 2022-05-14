@@ -5,7 +5,7 @@
     public Blanche()
     {
       TypeCadenceNote = TypeCadenceNote.Blanche;
-      Tempo = 2f;
+      Temps = 2f;
     }
   }
 }

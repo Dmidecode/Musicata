@@ -5,7 +5,7 @@
     public DemiSoupir()
     {
       TypeCadenceNote = TypeCadenceNote.DemiSoupir;
-      Tempo = 0.5f;
+      Temps = 0.5f;
     }
   }
 }

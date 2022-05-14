@@ -5,7 +5,7 @@
     public DemiPause()
     {
       TypeCadenceNote = TypeCadenceNote.DemiPause;
-      Tempo = 2f;
+      Temps = 2f;
     }
   }
 }

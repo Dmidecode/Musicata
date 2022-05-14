@@ -9,7 +9,7 @@ namespace Assets.Scripts.Notes
 {
   public class ManageMesure
   {
-    public float Tempo;
+    public float MesureTemps;
 
     public Transform MesureStart;
 
@@ -18,45 +18,41 @@ namespace Assets.Scripts.Notes
     public ManageMesure(float tempo, Transform mesureStart)
     {
       Notes = new List<Note>();
-      Tempo = tempo;
+      MesureTemps = tempo;
       MesureStart = mesureStart;
     }
 
     public bool IsCompleted()
     {
-      return GetCurrentTempo() >= Tempo;
-    }
-
-    public float GetMaxTempo()
-    {
-      return Tempo;
+      return GetCurrentMesureTemps() >= MesureTemps;
     }
 
     public int GetPosition()
     {
 
-      return Mathf.FloorToInt(GetCurrentTempo() * 2);
+      return Mathf.FloorToInt(GetCurrentMesureTemps() * 2);
     }
 
-    public float GetCurrentTempo()
+    public float GetCurrentMesureTemps()
     {
-      return Notes.Sum(x => x.GetTempo());
+      return Notes.Sum(x => x.GetTemps());
     }
 
     public bool CanAddNote(TypeCadenceNote typeCadenceNote, bool isPointe)
     {
       Note note = typeCadenceNote.ToNote();
       note.IsPointe = isPointe;
-      return GetCurrentTempo() + note.GetTempo() <= Tempo;
+      return GetCurrentMesureTemps() + note.GetTemps() <= MesureTemps;
     }
 
-    public void AddNote(TypeCadenceNote typeCadenceNote, TypeNote typeNote, TypeGamme typeGamme, bool isPointe, GameObject sprite)
+    public void AddNote(TypeCadenceNote typeCadenceNote, TypeNote typeNote, TypeGamme typeGamme, TypeAlteration typeAlteration, bool isPointe, GameObject sprite)
     {
       Note note = typeCadenceNote.ToNote();
       note.IsPointe = isPointe;
       note.Sprite = sprite;
       note.TypeNote = typeNote;
       note.TypeGamme = typeGamme;
+      note.TypeAlteration = typeAlteration;
       Notes.Add(note);
     }
 
