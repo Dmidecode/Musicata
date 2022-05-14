@@ -11,15 +11,23 @@ namespace Assets.Scripts.Notes
   {
     public float MesureTemps;
 
+    public bool MainDroite;
+
     public Transform MesureStart;
 
     public List<Note> Notes;
 
-    public ManageMesure(float tempo, Transform mesureStart)
+    public ManageMesure(float tempo, bool mainDroite, Transform mesureStart)
     {
       Notes = new List<Note>();
       MesureTemps = tempo;
       MesureStart = mesureStart;
+      MainDroite = mainDroite;
+    }
+
+    public bool IsMainDroite()
+    {
+      return MainDroite;
     }
 
     public bool IsCompleted()

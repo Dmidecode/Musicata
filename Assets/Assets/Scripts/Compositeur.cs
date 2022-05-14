@@ -41,9 +41,9 @@ public class Compositeur : MonoBehaviour
     MesuresMainDroite = new ManageMesure[MesuresMainDroiteTransform.Length];
     MesuresMainGauche = new ManageMesure[MesuresMainGaucheTransform.Length];
     for (int i = 0;i < MesuresMainDroiteTransform.Length; i += 1)
-      MesuresMainDroite[i] = new ManageMesure(mesureTemps, MesuresMainDroiteTransform[i].transform);
+      MesuresMainDroite[i] = new ManageMesure(mesureTemps, true, MesuresMainDroiteTransform[i].transform);
     for (int i = 0; i < MesuresMainGaucheTransform.Length; i += 1)
-      MesuresMainGauche[i] = new ManageMesure(mesureTemps, MesuresMainGaucheTransform[i].transform);
+      MesuresMainGauche[i] = new ManageMesure(mesureTemps, false, MesuresMainGaucheTransform[i].transform);
   }
 
   void Update()
@@ -94,35 +94,35 @@ public class Compositeur : MonoBehaviour
     }
     else if (Input.GetKeyDown(KeyCode.A))
     {
-      AddNote(TypeNote.Do, TypeCadenceNote.Croche, TypeGamme.Normale, TypeAlteration.None, false, false);
+      AddNote(TypeNote.Do, TypeCadenceNote.Noire, TypeGamme.Haute, TypeAlteration.None, false, true);
     }
     else if (Input.GetKeyDown(KeyCode.Z))
     {
-      AddNote(TypeNote.Re, TypeCadenceNote.Croche, TypeGamme.Normale, TypeAlteration.Becarre, false, true);
+      AddNote(TypeNote.Re, TypeCadenceNote.Noire, TypeGamme.Haute, TypeAlteration.None, false, true);
     }
     else if (Input.GetKeyDown(KeyCode.E))
     {
-      AddNote(TypeNote.Mi, TypeCadenceNote.Croche, TypeGamme.Normale, TypeAlteration.Bemol, false, false);
+      AddNote(TypeNote.Mi, TypeCadenceNote.Noire, TypeGamme.Haute, TypeAlteration.None, false, true);
     }
     else if (Input.GetKeyDown(KeyCode.R))
     {
-      AddNote(TypeNote.Fa, TypeCadenceNote.Croche, TypeGamme.Normale, TypeAlteration.Diese, false, true);
+      AddNote(TypeNote.Fa, TypeCadenceNote.Noire, TypeGamme.Haute, TypeAlteration.None, false, true);
     }
     else if (Input.GetKeyDown(KeyCode.T))
     {
-      AddNote(TypeNote.Sol, TypeCadenceNote.Croche, TypeGamme.Normale, TypeAlteration.Becarre, false, false);
+      AddNote(TypeNote.Sol, TypeCadenceNote.Noire, TypeGamme.Haute, TypeAlteration.None, false, true);
     }
     else if (Input.GetKeyDown(KeyCode.Y))
     {
-      AddNote(TypeNote.La, TypeCadenceNote.Croche, TypeGamme.Normale, TypeAlteration.Bemol, false, true);
+      AddNote(TypeNote.La, TypeCadenceNote.Noire, TypeGamme.Haute, TypeAlteration.None, false, true);
     }
     else if (Input.GetKeyDown(KeyCode.U))
     {
-      AddNote(TypeNote.La, TypeCadenceNote.Croche, TypeGamme.Normale, TypeAlteration.Diese, false, false);
+      AddNote(TypeNote.La, TypeCadenceNote.Noire, TypeGamme.Haute, TypeAlteration.None, false, true);
     }
     else if (Input.GetKeyDown(KeyCode.I))
     {
-      AddNote(TypeNote.Si, TypeCadenceNote.Croche, TypeGamme.Normale, TypeAlteration.Becarre, false, true);
+      AddNote(TypeNote.Si, TypeCadenceNote.Noire, TypeGamme.Haute, TypeAlteration.None, false, true);
     }
   }
 }

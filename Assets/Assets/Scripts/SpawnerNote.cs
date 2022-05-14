@@ -36,19 +36,19 @@ public abstract class SpawnerNote : MonoBehaviour
     }
   }
 
-  public abstract void Do(GameObject note, Vector3 startPositionMesure, int positionDansMesure);
-  public abstract void Re(GameObject note, Vector3 startPositionMesure, int positionDansMesure);
-  public abstract void Mi(GameObject note, Vector3 startPositionMesure, int positionDansMesure);
-  public abstract void Fa(GameObject note, Vector3 startPositionMesure, int positionDansMesure);
-  public abstract void Sol(GameObject note, Vector3 startPositionMesure, int positionDansMesure);
-  public abstract void La(GameObject note, Vector3 startPositionMesure, int positionDansMesure);
-  public abstract void Si(GameObject note, Vector3 startPositionMesure, int positionDansMesure);
+  public abstract void Do(GameObject note, bool isMainDroite, Vector3 startPositionMesure, int positionDansMesure);
+  public abstract void Re(GameObject note, bool isMainDroite, Vector3 startPositionMesure, int positionDansMesure);
+  public abstract void Mi(GameObject note, bool isMainDroite, Vector3 startPositionMesure, int positionDansMesure);
+  public abstract void Fa(GameObject note, bool isMainDroite, Vector3 startPositionMesure, int positionDansMesure);
+  public abstract void Sol(GameObject note, bool isMainDroite, Vector3 startPositionMesure, int positionDansMesure);
+  public abstract void La(GameObject note, bool isMainDroite, Vector3 startPositionMesure, int positionDansMesure);
+  public abstract void Si(GameObject note, bool isMainDroite, Vector3 startPositionMesure, int positionDansMesure);
 
-  protected abstract void AjusteHampe(GameObject hampe, GameObject hampeCroche, TypeNote typeNote);
+  protected abstract void AjusteHampe(GameObject hampe, GameObject hampeCroche, TypeNote typeNote, bool isMainDroite);
 
-  protected bool IsHampeInferieur(TypeNote typeNote)
+  protected bool IsHampeInferieur(TypeNote typeNote, bool isMainDroite)
   {
-    return TypeGamme.IsHampeInferieur(typeNote);
+    return TypeGamme.IsHampeInferieur(typeNote, isMainDroite);
   }
 
   public void DeleteLastNote(ManageMesure mesure)
@@ -115,9 +115,9 @@ public abstract class SpawnerNote : MonoBehaviour
 
     if (typeCadenceNote.IsNote())
     {
-      AddHampe(note, typeNote, typeCadenceNote);
+      AddHampe(note, typeNote, typeCadenceNote, mesure.IsMainDroite());
 
-      Action<GameObject, Vector3, int> funcNote = null;
+      Action<GameObject, bool, Vector3, int> funcNote = null;
       switch (typeNote)
       {
         case TypeNote.Do:
@@ -143,7 +143,7 @@ public abstract class SpawnerNote : MonoBehaviour
           break;
       }
 
-      funcNote(note, mesure.MesureStart.position, mesure.GetPosition());
+      funcNote(note, mesure.IsMainDroite() ,mesure.MesureStart.position, mesure.GetPosition());
 
       if (isPointe)
         Instantiate(Resources.Load("Prefab/Notes/Pointe") as GameObject, note.transform);
@@ -203,7 +203,7 @@ public abstract class SpawnerNote : MonoBehaviour
       return;
 
     // Regarder la direction de la hampe de la 1ère croche de la série
-    bool hampeInferieur = lastNoteCroche.TypeGamme.IsHampeInferieur(lastNoteCroche.TypeNote);
+    bool hampeInferieur = lastNoteCroche.TypeGamme.IsHampeInferieur(lastNoteCroche.TypeNote, mesure.IsMainDroite());
 
     // Retirer la hampe des croches
     DisabledHampe(croches);
@@ -323,7 +323,7 @@ public abstract class SpawnerNote : MonoBehaviour
     return dummy;
   }
 
-  protected void AddHampe(GameObject note, TypeNote typeNote, TypeCadenceNote typeCadenceNote)
+  protected void AddHampe(GameObject note, TypeNote typeNote, TypeCadenceNote typeCadenceNote, bool isMainDroite)
   {
     GameObject hampeResource = null;
     GameObject hampeCrocheResource = null;
@@ -348,7 +348,7 @@ public abstract class SpawnerNote : MonoBehaviour
     if (hampeCrocheResource != null)
       hampeCroche = Instantiate(hampeCrocheResource, note.transform);
 
-    AjusteHampe(hampe, hampeCroche, typeNote);
+    AjusteHampe(hampe, hampeCroche, typeNote, isMainDroite);
   }
 
   protected void SpawnBarreNoire(Transform transform, float tonPosition)
@@ -358,9 +358,9 @@ public abstract class SpawnerNote : MonoBehaviour
     barreNoire.transform.localScale = new Vector3(1.5f, 0.2f, 0.0f);
   }
 
-  protected void SpawnBarresNoire(GameObject doNote, int start, int nombreIteration)
+  protected void SpawnBarresNoire(GameObject doNote, int start, int nombreIteration, int up)
   {
     for (int i = start, j = 0; j < nombreIteration; i += 2, j += 1)
-      SpawnBarreNoire(doNote.transform, ton * i);
+      SpawnBarreNoire(doNote.transform, ton * up * i);
   }
 }

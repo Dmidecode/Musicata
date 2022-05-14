@@ -26,7 +26,7 @@ namespace Assets.Scripts
       return new Noire();
     }
 
-    public static bool IsHampeInferieur(this TypeGamme typeGamme, TypeNote typeNote)
+    public static bool IsHampeInferieur(this TypeGamme typeGamme, TypeNote typeNote, bool isMainDroite)
     {
       switch (typeGamme)
       {
@@ -34,7 +34,7 @@ namespace Assets.Scripts
         case TypeGamme.Haute: return true;
         case TypeGamme.Normale:
         default:
-          return typeNote > TypeNote.Sol;
+          return isMainDroite ? typeNote > TypeNote.Sol : typeNote > TypeNote.Re;
       }
     }
 
