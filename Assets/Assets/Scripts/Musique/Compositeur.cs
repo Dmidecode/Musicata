@@ -37,7 +37,7 @@ public class Compositeur : MonoBehaviour
 
   private void Start()
   {
-    int mesureTemps = ConfigurationSysteme.Instance.GetMesureTemps();
+    int mesureTemps = GameManager.Instance.GetMesureTemps();
     MesuresMainDroite = new ManageMesure[MesuresMainDroiteTransform.Length];
     MesuresMainGauche = new ManageMesure[MesuresMainGaucheTransform.Length];
     for (int i = 0;i < MesuresMainDroiteTransform.Length; i += 1)
@@ -48,7 +48,7 @@ public class Compositeur : MonoBehaviour
 
   void Update()
   {
-    SpawnNoire();
+    SpawnMusic();
   }
 
   public void AddNote(TypeNote typeNote, TypeCadenceNote typeCadenceNote, TypeGamme typeGamme, TypeAlteration typeAlteration, bool isPointe, bool isMainDroite)
@@ -86,7 +86,17 @@ public class Compositeur : MonoBehaviour
     GammeNormale.DeleteLastNote(mesure);
   }
 
-  private void SpawnNoire()
+  public ManageMesure[] GetMesuresMainDroite()
+  {
+    return MesuresMainDroite;
+  }
+
+  public ManageMesure[] GetMesuresMainGauche()
+  {
+    return MesuresMainGauche;
+  }
+
+  private void SpawnMusic()
   {
     if (Input.GetKeyDown(KeyCode.KeypadEnter))
     {
@@ -94,11 +104,31 @@ public class Compositeur : MonoBehaviour
     }
     else if (Input.GetKeyDown(KeyCode.A))
     {
-      AddNote(TypeNote.Do, TypeCadenceNote.Noire, TypeGamme.Haute, TypeAlteration.None, false, true);
+      AddNote(TypeNote.Do, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
+      AddNote(TypeNote.Do, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
+      AddNote(TypeNote.Do, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
+      AddNote(TypeNote.Re, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
+      AddNote(TypeNote.Mi, TypeCadenceNote.Blanche, TypeGamme.Normale, TypeAlteration.None, false, true);
+      AddNote(TypeNote.Re, TypeCadenceNote.Blanche, TypeGamme.Normale, TypeAlteration.None, false, true);
+      AddNote(TypeNote.Do, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
+      AddNote(TypeNote.Mi, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
+      AddNote(TypeNote.Re, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
+      AddNote(TypeNote.Re, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
+      AddNote(TypeNote.Do, TypeCadenceNote.Blanche, TypeGamme.Normale, TypeAlteration.None, false, true);
     }
     else if (Input.GetKeyDown(KeyCode.Z))
     {
-      AddNote(TypeNote.Re, TypeCadenceNote.Noire, TypeGamme.Haute, TypeAlteration.None, false, true);
+      AddNote(TypeNote.Do, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, false);
+      AddNote(TypeNote.Do, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, false);
+      AddNote(TypeNote.Do, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, false);
+      AddNote(TypeNote.Re, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, false);
+      AddNote(TypeNote.Mi, TypeCadenceNote.Blanche, TypeGamme.Normale, TypeAlteration.None, false, false);
+      AddNote(TypeNote.Re, TypeCadenceNote.Blanche, TypeGamme.Normale, TypeAlteration.None, false, false);
+      AddNote(TypeNote.Do, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, false);
+      AddNote(TypeNote.Mi, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, false);
+      AddNote(TypeNote.Re, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, false);
+      AddNote(TypeNote.Re, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, false);
+      AddNote(TypeNote.Do, TypeCadenceNote.Blanche, TypeGamme.Normale, TypeAlteration.None, false, false);
     }
     else if (Input.GetKeyDown(KeyCode.E))
     {

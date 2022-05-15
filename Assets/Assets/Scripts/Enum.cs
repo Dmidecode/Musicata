@@ -6,6 +6,14 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts
 {
+  public enum Difficulte
+  {
+    Facile,
+    Normal,
+    Difficile,
+    Beethoven
+  }
+
   public enum TypeAlteration
   {
     None,

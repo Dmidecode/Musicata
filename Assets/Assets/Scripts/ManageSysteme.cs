@@ -20,10 +20,10 @@ public class ManageSysteme : MonoBehaviour
     var signatureTransform = clef.transform.Find("Signature");
     if (signatureTransform != null)
     {
-      var notes = ConfigurationSysteme.Instance.GetAlterations();
+      var notes = GameManager.Instance.GetAlterations();
       bool isBemol = notes.Any(x => x.TypeAlteration == Assets.Scripts.TypeAlteration.Bemol);
       string gameObjectSignature = isBemol ? "Bemol" : "Diese";
-      for (int i = 0; i < Mathf.Min(notes.Count, 3); i += 1)
+      for (int i = 0; i < Mathf.Min(notes.Count, maxSignature); i += 1)
       {
         var keyTransform = signatureTransform.transform.Find($"{gameObjectSignature}{i}");
         keyTransform.gameObject.SetActive(true);
