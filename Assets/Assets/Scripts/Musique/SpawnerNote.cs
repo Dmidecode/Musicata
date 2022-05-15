@@ -12,7 +12,7 @@ public abstract class SpawnerNote : MonoBehaviour
   protected const float ton = 0.5f;
   protected float espacement = 2.2f;
   protected const float gammeTon = 3.5f;
-  //protected const float positionGameNormal = 0f;
+
   protected const float positionHampeY = 1.651f;
   protected const float positionHampeX = 0.442f;
   protected const float hauteurHampeY = 3.4f;

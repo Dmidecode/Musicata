@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Notes
 {
+  [Serializable]
   public class ManageMesure
   {
     public float MesureTemps;

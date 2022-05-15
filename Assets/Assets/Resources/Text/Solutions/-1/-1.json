@@ -1,0 +1,15 @@
+{
+	"Difficulte": 0,
+	"Titre": "Editor",
+	"NombreSystemeMainDroite": 2,
+	"NombreSystemeMainGauche": 2,
+	"SignatureDiese": 0,
+	"SignatureBemol": 0,
+	"Tempo": 130,
+	"Temps": 4,
+	"Solution": 
+	{
+			"MainDroite": [],
+			"MainGauche": []
+	}
+}

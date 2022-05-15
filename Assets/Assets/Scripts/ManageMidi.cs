@@ -69,7 +69,7 @@ public class ManageMidi : MonoBehaviour
     ticksPerRonde = ticksPerBlanche * 2;
   }
 
-  public void ValidatePuzzle()
+  public void ListenAnswer(Action callback)
   {
     Init(GameManager.Instance.GetTempo());
     var mesuresMainDroite = Compositeur.Instance.GetMesuresMainDroite();
@@ -77,7 +77,7 @@ public class ManageMidi : MonoBehaviour
     AddNoteMidi(mesuresMainDroite, tickMainDroite);
     AddNoteMidi(mesuresMainGauche, tickMainGauche);
 
-    PlayMidiSequence();
+    PlayMidiSequence(callback);
   }
 
   private void AddNoteMidi(ManageMesure[] mesures, long tick)
@@ -96,7 +96,7 @@ public class ManageMidi : MonoBehaviour
     return tick + duration;
   }
 
-  public void PlayMidiSequence()
+  public void PlayMidiSequence(Action callback)
   {
     MidiFilePlayer midiPlayer = FindObjectOfType<MidiFilePlayer>();
 
@@ -113,7 +113,7 @@ public class ManageMidi : MonoBehaviour
     midiPlayer.OnEventEndPlayMidi.RemoveAllListeners();
     midiPlayer.OnEventEndPlayMidi.AddListener((string midiname, EventEndMidiEnum reason) =>
     {
-      //Debug.Log($"End playing {midiname} {reason} Duration={(DateTime.Now - startPlaying).TotalSeconds:F3}");
+      callback();
     });
 
     midiPlayer.OnEventNotesMidi.RemoveAllListeners();

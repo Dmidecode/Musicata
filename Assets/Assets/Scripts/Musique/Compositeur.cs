@@ -17,6 +17,8 @@ public class Compositeur : MonoBehaviour
   private ManageMesure[] MesuresMainDroite;
   public Transform[] MesuresMainGaucheTransform;
   private ManageMesure[] MesuresMainGauche;
+  public int NombreMesureMainDroite;
+  public int NombreMesureMainGauche;
 
 
   private static Compositeur instance;
@@ -37,12 +39,15 @@ public class Compositeur : MonoBehaviour
 
   private void Start()
   {
+    NombreMesureMainDroite = GameManager.Instance.GetNombreMesuresMainDroite();
+    NombreMesureMainGauche = GameManager.Instance.GetNombreMesuresMainGauche();
+
     int mesureTemps = GameManager.Instance.GetMesureTemps();
-    MesuresMainDroite = new ManageMesure[MesuresMainDroiteTransform.Length];
-    MesuresMainGauche = new ManageMesure[MesuresMainGaucheTransform.Length];
-    for (int i = 0;i < MesuresMainDroiteTransform.Length; i += 1)
+    MesuresMainDroite = new ManageMesure[NombreMesureMainDroite];
+    MesuresMainGauche = new ManageMesure[NombreMesureMainGauche];
+    for (int i = 0;i < NombreMesureMainDroite; i += 1)
       MesuresMainDroite[i] = new ManageMesure(mesureTemps, true, MesuresMainDroiteTransform[i].transform);
-    for (int i = 0; i < MesuresMainGaucheTransform.Length; i += 1)
+    for (int i = 0; i < NombreMesureMainGauche; i += 1)
       MesuresMainGauche[i] = new ManageMesure(mesureTemps, false, MesuresMainGaucheTransform[i].transform);
   }
 
@@ -114,7 +119,7 @@ public class Compositeur : MonoBehaviour
       AddNote(TypeNote.Mi, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
       AddNote(TypeNote.Re, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
       AddNote(TypeNote.Re, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
-      AddNote(TypeNote.Do, TypeCadenceNote.Blanche, TypeGamme.Normale, TypeAlteration.None, false, true);
+      AddNote(TypeNote.Do, TypeCadenceNote.Ronde, TypeGamme.Normale, TypeAlteration.None, false, true);
     }
     else if (Input.GetKeyDown(KeyCode.Z))
     {
