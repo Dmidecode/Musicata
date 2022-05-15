@@ -18,7 +18,43 @@ MonoBehaviour:
   m_GUID: 45f96a8e7f3c19f45898db35d936cb93
   m_SerializeEntries:
   - m_GUID: 19ae5e1dc9205ac4ba7843dac5bddd3d
+    m_Address: CadenceName_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+  - m_GUID: 70a7ee693e347d04b850b75548c43858
     m_Address: NoteName_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+  - m_GUID: 692b94759f4988f42a4cea7ee64f6b6c
+    m_Address: GammeName_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+  - m_GUID: ffaf404e85f731941a7afb3183563ac5
+    m_Address: AlternationName_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+  - m_GUID: 156d83ff34c7fc94488c69c6299b6611
+    m_Address: BoutonText_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+  - m_GUID: 149b832dec52edc4390eee5756f1ff73
+    m_Address: TitreText_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+  - m_GUID: b35d16cf4ce600f49a3d92829814225c
+    m_Address: QuelleMain_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en

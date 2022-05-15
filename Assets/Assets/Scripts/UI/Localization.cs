@@ -9,15 +9,23 @@ public class Localization : MonoBehaviour
 {
     public enum TypeTrad
     {
-        Cadence,
+        CadenceName,
         NoteName,
+        GammeName,
+        AlternationName,
+        QuelleMain,
+
+        BoutonText
     }
 
+    private static Traduction TraductionNoteName = new Traduction();
+    private static Traduction TraductionCadenceName = new Traduction();
+    private static Traduction TraductionGammeName = new Traduction();
+    private static Traduction TraductionAlternationName = new Traduction();
+    private static Traduction TraductionQuelleMain = new Traduction();
+    private static Traduction TraductionBoutonText = new Traduction();
+
     private static Locale Locale;
-
-    private static Dictionary<Locale, Dictionary<string, string>> TardsNoteName = new Dictionary<Locale, Dictionary<string, string>>();
-
-    private static HashSet<Action<Dictionary<string, string>>> NoteNameCallBack = new HashSet<Action<Dictionary<string, string>>>();
 
     private static Localization instance;
 
@@ -43,66 +51,97 @@ public class Localization : MonoBehaviour
         LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
         LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
         Locale locale = LocalizationSettings.SelectedLocale;
-        LoadNoteName(locale);
+        foreach (TypeTrad trad in Enum.GetValues(typeof(TypeTrad)))
+        {
+            Traduction traduction = GetTraduction(trad);
+            LoadTrad(trad, locale);
+        }
     }
 
-    public static void SubstribeToNoteName(Action<Dictionary<string, string>> funcOnLocalChange)
+    public static void Substribe(TypeTrad trad, Action<Dictionary<string, string>> funcOnLocalChange)
     {
-        NoteNameCallBack.Add(funcOnLocalChange);
+        GetTraduction(trad).CallBack.Add(funcOnLocalChange);
     }
 
-    public static void UnsubstribeToNoteName(Action<Dictionary<string, string>> funcOnLocalChange)
+    public static void Unsubstribe(TypeTrad trad, Action<Dictionary<string, string>> funcOnLocalChange)
     {
-        NoteNameCallBack.Remove(funcOnLocalChange);
+        GetTraduction(trad).CallBack.Remove(funcOnLocalChange);
     }
 
-    public static string GetTradNoteName(string noteName)
+    public static string GetTrad(TypeTrad trad, string name)
     {
+        Traduction traduction = GetTraduction(trad);
         if (Locale == null)
         {
             Locale = LocalizationSettings.SelectedLocale;
         }
 
-        if (!TardsNoteName.ContainsKey(Locale))
+        if (!traduction.Tards.ContainsKey(Locale))
         {
-            LoadNoteName(Locale);
+            LoadTrad(trad, Locale);
         }
-        else if (TardsNoteName[Locale].ContainsKey(noteName))
+        else if (traduction.Tards[Locale].ContainsKey(name))
         {
-            return TardsNoteName[Locale][noteName];
+            return traduction.Tards[Locale][name];
         }
 
-        return noteName;
+        return name;
+    }
+
+    private static Traduction GetTraduction(TypeTrad trad)
+    {
+        switch (trad)
+        {
+            case TypeTrad.GammeName:
+                return TraductionGammeName;
+            case TypeTrad.AlternationName:
+                return TraductionAlternationName;
+            case TypeTrad.BoutonText:
+                return TraductionBoutonText;
+            case TypeTrad.CadenceName:
+                return TraductionCadenceName;
+            case TypeTrad.NoteName:
+                return TraductionNoteName;
+            case TypeTrad.QuelleMain:
+                return TraductionQuelleMain;
+            default:
+                return new Traduction();
+        }
     }
 
     private static void OnLocaleChanged(Locale locale)
     {
         Locale = locale;
-        LoadNoteName(locale);
-        UpdateUsedTrads(locale, TardsNoteName, NoteNameCallBack);
+        foreach (TypeTrad trad in Enum.GetValues(typeof(TypeTrad)))
+        {
+            Traduction traduction = GetTraduction(trad);
+            LoadTrad(trad, locale);
+            UpdateUsedTrads(locale, traduction.Tards, traduction.CallBack);
+        }
     }
 
-    private static void LoadNoteName(Locale locale)
+    private static void LoadTrad(TypeTrad trad, Locale locale)
     {
-        if (!TardsNoteName.ContainsKey(locale))
+        Traduction traduction = GetTraduction(trad);
+        if (!traduction.Tards.ContainsKey(locale))
         {
-            TardsNoteName[locale] = new Dictionary<string, string>();
+            traduction.Tards[locale] = new Dictionary<string, string>();
         }
         else
         {
             return;
         }
 
-        var getAsync = LocalizationSettings.StringDatabase.GetTableAsync(TypeTrad.NoteName.ToString(), locale);
+        var getAsync = LocalizationSettings.StringDatabase.GetTableAsync(trad.ToString(), locale);
         if (getAsync.IsDone)
         {
-            UpdateTrad(locale, getAsync.Result.Values, TardsNoteName, NoteNameCallBack);
+            UpdateTrad(locale, getAsync.Result.Values, traduction.Tards, traduction.CallBack);
         }
         else
         {
             getAsync.Completed += (op) =>
             {
-                UpdateTrad(locale, op.Result.Values, TardsNoteName, NoteNameCallBack);
+                UpdateTrad(locale, op.Result.Values, traduction.Tards, traduction.CallBack);
             };
         }
     }
@@ -124,4 +163,11 @@ public class Localization : MonoBehaviour
             callBack(tards[locale]);
         }
     }
+}
+
+public class Traduction
+{
+    public Dictionary<Locale, Dictionary<string, string>> Tards = new Dictionary<Locale, Dictionary<string, string>>();
+
+    public HashSet<Action<Dictionary<string, string>>> CallBack = new HashSet<Action<Dictionary<string, string>>>();
 }

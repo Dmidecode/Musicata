@@ -10,41 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: NoteName Shared Data
+  m_Name: Gamme Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: CadenceName
-  m_TableCollectionNameGuidString: 11e95dc2229c67646b96cff91ff30a5d
+  m_TableCollectionName: GammeName
+  m_TableCollectionNameGuidString: f61eb9e9a8a665f408e009d5e28811cf
   m_Entries:
-  - m_Id: 23481286656
-    m_Key: Soupir
+  - m_Id: 24999624704
+    m_Key: Basse
     m_Metadata:
       m_Items: []
-  - m_Id: 142045872128
-    m_Key: DemiSoupir
+  - m_Id: 75712954368
+    m_Key: Normal
     m_Metadata:
       m_Items: []
-  - m_Id: 260383965184
-    m_Key: Pause
-    m_Metadata:
-      m_Items: []
-  - m_Id: 315358707712
-    m_Key: DemiPause
-    m_Metadata:
-      m_Items: []
-  - m_Id: 479905447936
-    m_Key: Ronde
-    m_Metadata:
-      m_Items: []
-  - m_Id: 507545911296
-    m_Key: Croche
-    m_Metadata:
-      m_Items: []
-  - m_Id: 567037919232
-    m_Key: Blanche
-    m_Metadata:
-      m_Items: []
-  - m_Id: 594456996216832
-    m_Key: Noire
+  - m_Id: 112815767552
+    m_Key: Haute
     m_Metadata:
       m_Items: []
   m_Metadata:
@@ -56,4 +36,4 @@ MonoBehaviour:
     00000000:
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1652487084697
+        m_CustomEpoch: 1652629969629

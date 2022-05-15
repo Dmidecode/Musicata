@@ -5,7 +5,6 @@ using static UnityEngine.UI.Dropdown;
 public class DropDownTraductible : Dropdown
 {
     public List<OptionDataTraductible> OptionsTraductible;
-    public Localization.TypeTrad TypeTrad;
 
     protected override void Start()
     {
@@ -28,5 +27,4 @@ public class OptionDataTraductible
         this.Option = option;
         this.InitalValue = option.text;
     }
-
 }

@@ -34,8 +34,8 @@ RectTransform:
   m_Father: {fileID: 7192813532588573972}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.01, y: 0.1}
-  m_AnchorMax: {x: 0.3, y: 0.9}
+  m_AnchorMin: {x: 0.01, y: 0.2}
+  m_AnchorMax: {x: 0.29, y: 0.8}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c11955b2d0ce30469a56985737d8258, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd88a2a110aa0ec44b271e957b05d605, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -435,15 +435,15 @@ MonoBehaviour:
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 20
+    m_MinSize: 5
+    m_MaxSize: 15
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Soupir
+  m_Text: Croche
 --- !u!1 &7192813531376290199
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,11 +676,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 5
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_BestFit: 1
+    m_MinSize: 5
+    m_MaxSize: 15
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1122,7 +1122,7 @@ GameObject:
   - component: {fileID: 1879679006}
   - component: {fileID: 1879679009}
   m_Layer: 5
-  m_Name: Dropdown Full Image
+  m_Name: DropdownTraductible
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1238,23 +1238,26 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
+    - m_Text: Croche
+      m_Image: {fileID: 21300000, guid: dd88a2a110aa0ec44b271e957b05d605, type: 3}
+    - m_Text: Noire
+      m_Image: {fileID: 21300000, guid: 573f9360be58bfc409613b117c78b73b, type: 3}
+    - m_Text: Blanche
+      m_Image: {fileID: 21300000, guid: 67575c24ccb1a8a4a81aaebdcdb4a1f3, type: 3}
+    - m_Text: Ronde
+      m_Image: {fileID: 21300000, guid: 8903ea52018d66b47b9f3878e70b0b95, type: 3}
     - m_Text: Soupir
       m_Image: {fileID: 21300000, guid: 3c11955b2d0ce30469a56985737d8258, type: 3}
     - m_Text: DemiSoupir
       m_Image: {fileID: 21300000, guid: bacd84e3e73fdc44cb8402f415d2790f, type: 3}
-    - m_Text: ClefSol
-      m_Image: {fileID: 21300000, guid: e9a2f168ca811c0418f59f4efb48bd4b, type: 3}
-    - m_Text: ClefFa
-      m_Image: {fileID: 21300000, guid: e39edaf887281f442a9d4baba72b1a63, type: 3}
-    - m_Text: Diese
-      m_Image: {fileID: 21300000, guid: 61474dc06cb42034c9bf5dff31d6864b, type: 3}
-    - m_Text: Bemol
-      m_Image: {fileID: 21300000, guid: f59a305616d0fe34783bb4c714373bbd, type: 3}
+    - m_Text: DemiPause
+      m_Image: {fileID: 21300000, guid: 3d36c50bb01fb38428772b2ceaa9c72a, type: 3}
+    - m_Text: Pause
+      m_Image: {fileID: 21300000, guid: 524dcdbb16bc03145ac5994b9fec5a56, type: 3}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
   m_AlphaFadeSpeed: 0.15
-  TypeTrad: 0
 --- !u!114 &1879679009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1267,7 +1270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f2b2905366af440bce479fc3a0149e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropdownNotePicker: {fileID: 1879679006}
+  DropdownPicker: {fileID: 1879679006}
   TypeTrad: 0
 --- !u!1 &7192813532662416465
 GameObject:
@@ -1377,8 +1380,8 @@ RectTransform:
   m_Father: {fileID: 7192813530749011095}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.01, y: 0.1}
-  m_AnchorMax: {x: 0.3, y: 0.9}
+  m_AnchorMin: {x: 0.01, y: 0.2}
+  m_AnchorMax: {x: 0.29, y: 0.8}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

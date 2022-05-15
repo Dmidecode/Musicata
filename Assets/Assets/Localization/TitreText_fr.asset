@@ -10,44 +10,40 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: NoteName_en
+  m_Name: TitreText_fr
   m_EditorClassIdentifier: 
   m_LocaleId:
-    m_Code: en
-  m_SharedData: {fileID: 11400000, guid: 11e95dc2229c67646b96cff91ff30a5d, type: 2}
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: 3b43a9b935145a8408932dd505bee2ef, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 23481286656
-    m_Localized: Breath
+  - m_Id: 5487722496
+    m_Localized: Cadence
     m_Metadata:
       m_Items: []
-  - m_Id: 142045872128
-    m_Localized: Half - Breath
+  - m_Id: 33354678272
+    m_Localized: Note
     m_Metadata:
       m_Items: []
-  - m_Id: 260383965184
-    m_Localized: Break
+  - m_Id: 60592488448
+    m_Localized: Gamme
     m_Metadata:
       m_Items: []
-  - m_Id: 315358707712
-    m_Localized: Half - Break
+  - m_Id: 84290306048
+    m_Localized: Alteration
     m_Metadata:
       m_Items: []
-  - m_Id: 594456996216832
-    m_Localized: Black
+  - m_Id: 119438573568
+    m_Localized: Pointer la note
     m_Metadata:
       m_Items: []
-  - m_Id: 479905447936
-    m_Localized: Ronde
+  - m_Id: 201273638912
+    m_Localized: Vitesse
     m_Metadata:
       m_Items: []
-  - m_Id: 507545911296
-    m_Localized: Half
-    m_Metadata:
-      m_Items: []
-  - m_Id: 567037919232
-    m_Localized: White
+  - m_Id: 42775908712448
+    m_Localized: Quelle main
     m_Metadata:
       m_Items: []
   references:

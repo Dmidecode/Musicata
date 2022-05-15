@@ -21,6 +21,30 @@ MonoBehaviour:
     m_Address: Assets/Assets/Localization/NoteName Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+  - m_GUID: d970d0bb0d3d54c429e71f3eb614068b
+    m_Address: Assets/Assets/Localization/New Table Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: f61eb9e9a8a665f408e009d5e28811cf
+    m_Address: Assets/Assets/Localization/Gamme Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: d3dec7ee7d4a32147aac1b072df388ec
+    m_Address: Assets/Assets/Localization/AlternationName Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 66c3de7592e16e94c9d7525bdbac0889
+    m_Address: Assets/Assets/Localization/BoutonText Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 3b43a9b935145a8408932dd505bee2ef
+    m_Address: Assets/Assets/Localization/TitreText Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 4df7c329be4d63a4f824c15cff4985d7
+    m_Address: Assets/Assets/Localization/QuelleMain Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: f9dacbc721bb4004c8bb97ce3bea36c2, type: 2}
   m_SchemaSet:

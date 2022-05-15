@@ -1,41 +1,45 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class DropDownNotePicker : MonoBehaviour
+public class DropDownPicker : MonoBehaviour
 {
     [SerializeField]
-    private DropDownTraductible DropdownNotePicker;
+    private DropDownTraductible DropdownPicker;
     public Localization.TypeTrad TypeTrad;
 
     void Awake()
     {
         Localization.Start();
-        Localization.SubstribeToNoteName(this.SetupTraduction);
+        Localization.Substribe(TypeTrad, this.SetupTraduction);
     }
 
     void Destroy()
     {
-        Localization.UnsubstribeToNoteName(this.SetupTraduction);
+        Localization.Unsubstribe(TypeTrad, this.SetupTraduction);
     }
 
     public void SetupTraduction(Dictionary<string, string> trads)
     {
         this.SetTradCaption();
-        foreach (var option in this.DropdownNotePicker.OptionsTraductible)
+        foreach (var option in this.DropdownPicker.OptionsTraductible)
         {
             SetTextTrad(trads, option);
         }
     }
 
+    public string GetValue()
+    {
+        return this.DropdownPicker.options[this.DropdownPicker.value].text;
+    }
+
     private void SetTradCaption()
     {
         // Traduire le nom de la note affichée. (la partie option ne change pas, mais la partie que l'on sélectionne oui, donc il faut l'update)
-        var chosenOption = this.DropdownNotePicker.options[this.DropdownNotePicker.value];
-        var chosenOptionTraductible = this.DropdownNotePicker.OptionsTraductible.FirstOrDefault(o => o.Option == chosenOption);
-        string noteNameTraduit = Localization.GetTradNoteName(chosenOptionTraductible.InitalValue);
-        this.DropdownNotePicker.captionText.text = noteNameTraduit;
+        var chosenOption = this.DropdownPicker.options[this.DropdownPicker.value];
+        var chosenOptionTraductible = this.DropdownPicker.OptionsTraductible.FirstOrDefault(o => o.Option == chosenOption);
+        string nameTraduit = Localization.GetTrad(TypeTrad, chosenOptionTraductible.InitalValue);
+        this.DropdownPicker.captionText.text = nameTraduit;
     }
 
     private void SetTextTrad(Dictionary<string, string> trads, OptionDataTraductible option)
