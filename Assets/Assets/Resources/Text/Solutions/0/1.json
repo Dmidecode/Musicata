@@ -1,0 +1,113 @@
+{
+	"Difficulte": 0,
+	"Titre": "Clair de Lune",
+	"NombreSystemeMainDroite": 1,
+	"NombreSystemeMainGauche": 0,
+	"SignatureDiese": 0,
+	"SignatureBemol": 0,
+	"Tempo": 130,
+	"Temps": 4,
+	"Solution": 
+	{
+			"MainDroite": [ 
+			{
+				"Notes": [
+					{ 
+						"TypeNote": 0,
+						"TypeGamme": 1,
+						"TypeAlteration": 0,
+						"TypeCadenceNote": 1,
+						"IsPointe": false
+					},
+					{ 
+						"TypeNote": 0,
+						"TypeGamme": 1,
+						"TypeAlteration": 0,
+						"TypeCadenceNote": 1,
+						"IsPointe": false
+					},
+					
+					{ 
+						"TypeNote": 0,
+						"TypeGamme": 1,
+						"TypeAlteration": 0,
+						"TypeCadenceNote": 1,
+						"IsPointe": false
+					},
+					
+					{ 
+						"TypeNote": 1,
+						"TypeGamme": 1,
+						"TypeAlteration": 0,
+						"TypeCadenceNote": 1,
+						"IsPointe": false
+					}
+				]
+			},
+			{
+				"Notes": [
+					{ 
+						"TypeNote": 2,
+						"TypeGamme": 1,
+						"TypeAlteration": 0,
+						"TypeCadenceNote": 2,
+						"IsPointe": false
+					},
+					
+					{ 
+						"TypeNote": 1,
+						"TypeGamme": 1,
+						"TypeAlteration": 0,
+						"TypeCadenceNote": 2,
+						"IsPointe": false
+					}
+				]
+			},
+			{
+				"Notes": [
+					{ 
+						"TypeNote": 0,
+						"TypeGamme": 1,
+						"TypeAlteration": 0,
+						"TypeCadenceNote": 1,
+						"IsPointe": false
+					},
+					{ 
+						"TypeNote": 2,
+						"TypeGamme": 1,
+						"TypeAlteration": 0,
+						"TypeCadenceNote": 1,
+						"IsPointe": false
+					},
+					{ 
+						"TypeNote": 1,
+						"TypeGamme": 1,
+						"TypeAlteration": 0,
+						"TypeCadenceNote": 1,
+						"IsPointe": false
+					},
+					{ 
+						"TypeNote": 1,
+						"TypeGamme": 1,
+						"TypeAlteration": 0,
+						"TypeCadenceNote": 1,
+						"IsPointe": false
+					}
+				]
+			},
+				{
+					"Notes": [
+					{ 
+						"TypeNote": 0,
+						"TypeGamme": 1,
+						"TypeAlteration": 0,
+						"TypeCadenceNote": 3,
+						"IsPointe": false
+					}
+				]
+			}
+			],
+			"MainGauche": []
+	}
+
+}

@@ -7,25 +7,31 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
+  [Serializable]
   public class Note
   {
-    public TypeCadenceNote TypeCadenceNote { get; set; }
+    public TypeCadenceNote TypeCadenceNote;
 
-    public TypeNote TypeNote { get; set; }
+    public TypeNote TypeNote;
 
-    protected float Temps { get; set; }
+    protected float Temps;
 
-    public bool IsPointe { get; set; }
+    public bool IsPointe;
 
-    public GameObject Sprite { get; set; }
+    public GameObject Sprite;
 
-    public TypeGamme TypeGamme { get; set; }
+    public TypeGamme TypeGamme;
 
-    public TypeAlteration TypeAlteration { get; set; }
+    public TypeAlteration TypeAlteration;
 
     public float GetTemps()
     {
       return Temps + (this.IsPointe ? this.Temps / 2 : 0);
+    }
+
+    public bool CompareSolution(Note note)
+    {
+      return this.TypeNote == note.TypeNote && this.TypeCadenceNote == note.TypeCadenceNote && this.TypeGamme == note.TypeGamme && this.IsPointe == note.IsPointe && this.TypeAlteration == note.TypeAlteration;
     }
   }
 }
