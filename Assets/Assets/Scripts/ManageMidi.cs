@@ -96,6 +96,14 @@ public class ManageMidi : MonoBehaviour
     return tick + duration;
   }
 
+  public void PlayLevel()
+  {
+    MidiFilePlayer midiPlayer = FindObjectOfType<MidiFilePlayer>();
+    Debug.Log($"{GameManager.Instance.Difficulte} pouet <3 {GameManager.Instance.Level}");
+    midiPlayer.MPTK_MidiName = "BeinFriend";
+    midiPlayer.MPTK_Play();
+  }
+
   public void PlayMidiSequence(Action callback)
   {
     MidiFilePlayer midiPlayer = FindObjectOfType<MidiFilePlayer>();

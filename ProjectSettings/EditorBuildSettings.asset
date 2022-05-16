@@ -5,9 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Assets/Scenes/TestGeneral.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Assets/Scenes/MenuPrincipal.unity
+    guid: 4c5e69d0b1ea44a48ad469a4ab0c6c47
+  - enabled: 1
+    path: Assets/Assets/Scenes/PuzzleLevel.unity
+    guid: 9ef1ad663d1c9e84c8c43a998e14f9fb
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: ca4cecba0f3a4674e80fe33cff493ec6, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: 31a4b514378fe8245b59a69287823e62, type: 2}

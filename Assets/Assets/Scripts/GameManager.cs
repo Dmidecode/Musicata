@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
   public List<ErreurMesure> ErreursMesure;
 
-  public int Difficulte;
+  public Difficulte Difficulte;
   public int Level;
 
   private void Awake()
@@ -29,10 +29,9 @@ public class GameManager : MonoBehaviour
       Destroy(gameObject);
 
     instance = this;
-
+    DontDestroyOnLoad(gameObject);
     this.Alterations = new List<Note>();
     ErreursMesure = new List<ErreurMesure>();
-    LoadConfigurationLevel(Difficulte, Level);
   }
 
   public void ValidatePuzzle()
@@ -86,9 +85,9 @@ public class GameManager : MonoBehaviour
     return !ErreursMesure.Any(x => x.IsMainDroite == isMainDroite);
   }
 
-  public void LoadConfigurationLevel(int difficulte, int level)
+  public void LoadConfigurationLevel(Difficulte difficulte, int level)
   {
-    string file = $"{difficulte}/{level}";
+    string file = $"{(int)difficulte}/{level}";
     var rawFile = Resources.Load($"Text/Solutions/{file}") as TextAsset;
 
     configurationLevel = JsonUtility.FromJson<ConfigurationLevel>(rawFile.text);

@@ -10,5 +10,7 @@
     </SoundFontInfo>
   </SoundFonts>
   <IndexSelectedSF>0</IndexSelectedSF>
-  <MidiFiles />
+  <MidiFiles>
+    <string>BeinFriend</string>
+  </MidiFiles>
 </MidiSet>
