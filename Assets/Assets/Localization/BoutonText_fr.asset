@@ -34,5 +34,33 @@ MonoBehaviour:
     m_Localized: Retirer
     m_Metadata:
       m_Items: []
+  - m_Id: 1168705989378048
+    m_Localized: Quitter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1168733399154688
+    m_Localized: Facile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1168758531424256
+    m_Localized: Normal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1168815548792832
+    m_Localized: Difficile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1168855038164992
+    m_Localized: Beethoven
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1168934729940992
+    m_Localized: Retour
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1169244709978112
+    m_Localized: "Param\xE8tres"
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

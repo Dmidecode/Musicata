@@ -28,9 +28,10 @@ public class DropDownPicker : MonoBehaviour
         }
     }
 
-    public string GetValue()
+    public OptionDataTraductible GetValue()
     {
-        return this.DropdownPicker.options[this.DropdownPicker.value].text;
+        var chosenOption = this.DropdownPicker.options[this.DropdownPicker.value];
+        return this.DropdownPicker.OptionsTraductible.First(optionTrad => optionTrad.Option == chosenOption);
     }
 
     private void SetTradCaption()
