@@ -35,7 +35,7 @@ public class ChoixDifficulte : MonoBehaviour
 
   private void Choix(Difficulte difficulte)
   {
-    GameManager.Instance.Difficulte = difficulte;
+    ConfigureLevelToLoad.Instance.Difficulte = difficulte;
     ChoixLevel.SetDifficulte((int)difficulte);
     ChoixLevelPanel.SetActive(true);
     gameObject.SetActive(false);

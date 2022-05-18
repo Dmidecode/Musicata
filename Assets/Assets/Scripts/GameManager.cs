@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,20 +24,30 @@ public class GameManager : MonoBehaviour
   public Difficulte Difficulte;
   public int Level;
 
+  public GameObject VictoryCanvas;
+  public GameObject UILevel;
+
   private void Awake()
   {
-    if (instance != null && instance != this)
+    if (instance == null)
+      instance = this;
+    else if (instance != this)
       Destroy(gameObject);
 
-    instance = this;
-    DontDestroyOnLoad(gameObject);
+    //DontDestroyOnLoad(gameObject);
+
     this.Alterations = new List<Note>();
     ErreursMesure = new List<ErreurMesure>();
+    if (SceneManager.GetActiveScene().name == "EditorLevel")
+      LoadConfigurationLevel(Difficulte.Dev, -1);
+    else if (ConfigureLevelToLoad.Instance.Level > 0)
+      LoadConfigurationLevel(Difficulte.Facile, 1);
   }
 
   public void ValidatePuzzle()
   {
-    GetComponent<ManageMidi>().ListenAnswer(AnalyseAnwser);
+    AnalyseAnwser();
+    //GetComponent<ManageMidi>().ListenAnswer(AnalyseAnwser);
   }
 
   public void AnalyseAnwser()
@@ -49,6 +60,15 @@ public class GameManager : MonoBehaviour
     bool okMainGauche = CompareSolution(mesuresMainGauche, solutionMesuresMainGauche, false);
     Debug.Log($"Solution main droite: {okMainDroite}");
     Debug.Log($"Solution main gauche: {okMainGauche}");
+
+    if (okMainDroite && okMainGauche)
+      DisplayVictory();
+  }
+
+  private void DisplayVictory()
+  {
+    UILevel.SetActive(false);
+    VictoryCanvas.SetActive(true);
   }
 
   private bool CompareSolution(ManageMesure[] mesures, List<ManageMesure> solutionMesures, bool isMainDroite)
@@ -95,16 +115,20 @@ public class GameManager : MonoBehaviour
     MesureTemps = configurationLevel.Temps;
     Tempo = configurationLevel.Tempo;
 
+    var objects = Resources.FindObjectsOfTypeAll<GameObject>();
+
     for (int i = configurationLevel.NombreSystemeMainDroite; i < 2; i += 1)
     {
-      var systemeMainDroite = GameObject.Find($"SystemeMainDroite{i + 1}");
-      systemeMainDroite.SetActive(false);
+      var systemeMainDroite = objects.FirstOrDefault(x => x.name == $"SystemeMainDroite{i + 1}");
+      if (systemeMainDroite != null)
+        systemeMainDroite.SetActive(false);
     }
 
     for (int i = configurationLevel.NombreSystemeMainGauche; i < 2; i += 1)
     {
-      var systemeMainGauche = GameObject.Find($"SystemeMainGauche{i + 1}");
-      systemeMainGauche.SetActive(false);
+      var systemeMainGauche = objects.FirstOrDefault(x => x.name == $"SystemeMainGauche{i + 1}");
+      if (systemeMainGauche != null)
+        systemeMainGauche.SetActive(false);
     }
 
     if (configurationLevel.SignatureDiese > 0)
@@ -154,5 +178,10 @@ public class GameManager : MonoBehaviour
   public void SetTempo(int tempo)
   {
     this.Tempo = tempo;
+  }
+
+  public string GetTitreMusique()
+  {
+    return configurationLevel.Titre;
   }
 }

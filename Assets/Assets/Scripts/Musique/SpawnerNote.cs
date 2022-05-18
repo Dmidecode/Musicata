@@ -225,7 +225,7 @@ public abstract class SpawnerNote : MonoBehaviour
     AddBarreLiaisonCroche(addedNote, croches, hampeInferieur, referenceNote);
   }
 
-  private void AddBarreLiaisonCroche(Note addedNote, List<Note> croches, bool hampeInferieur, Note referenceNote)
+  private GameObject AddBarreLiaisonCroche(Note addedNote, List<Note> croches, bool hampeInferieur, Note referenceNote)
   {
     // On prend addedNote car on va démarrer de celle-ci pour la position en x
     GameObject lastNote = addedNote.Sprite;
@@ -243,6 +243,7 @@ public abstract class SpawnerNote : MonoBehaviour
     barreNoire.name = "Liaison";
     barreNoire.transform.localScale = new Vector3(espacement * (croches.Count - 1) / lastNote.transform.localScale.x, 0.2f, 0);
     barreNoire.transform.position = new Vector3(xWorld - (espacement / 2 * (croches.Count - 1)), objectReferenceNote.transform.position.y + (hauteurHampeY * (!hampeInferieur ? 1 : -1)), 0);
+    return barreNoire;
   }
 
   private void AddBasicHampe(List<Note> croches, bool hampeInferieur, float positionWorldHampeY)
@@ -295,7 +296,7 @@ public abstract class SpawnerNote : MonoBehaviour
   {
     foreach (Transform tr in parent)
     {
-      if ((tr.tag == "Hampe" || tr.tag == "HampeCroche" || tr.name == "Liaison") && tr.gameObject.activeInHierarchy)
+      if ((tr.tag == "Hampe" || tr.tag == "HampeCroche" || tr.tag == "HampeDoubleCroche" || tr.name == "Liaison") && tr.gameObject.activeInHierarchy)
         tr.gameObject.SetActive(false);
 
       if (tr.name == "Dummy")

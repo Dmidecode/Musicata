@@ -22,6 +22,7 @@ public class ConfigurationLevel
 
   public ConfigurationLevel()
   {
+    Solution = new Solution();
   }
 
   public override string ToString()

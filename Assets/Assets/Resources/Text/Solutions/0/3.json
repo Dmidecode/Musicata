@@ -1,11 +1,11 @@
 {
 	"Difficulte": 0,
-	"Titre": "Gamme1",
+	"Titre": "Clair de Lune",
 	"NombreSystemeMainDroite": 1,
 	"NombreSystemeMainGauche": 0,
 	"SignatureDiese": 0,
 	"SignatureBemol": 0,
-	"Tempo": 100,
+	"Tempo": 94,
 	"Temps": 4,
 	"Solution": 
 	{
@@ -20,26 +20,45 @@
 						"IsPointe": false
 					},
 					{ 
+						"TypeNote": 0,
+						"TypeGamme": 1,
+						"TypeAlteration": 0,
+						"TypeCadenceNote": 1,
+						"IsPointe": false
+					},
+					
+					{ 
+						"TypeNote": 0,
+						"TypeGamme": 1,
+						"TypeAlteration": 0,
+						"TypeCadenceNote": 1,
+						"IsPointe": false
+					},
+					
+					{ 
 						"TypeNote": 1,
 						"TypeGamme": 1,
 						"TypeAlteration": 0,
 						"TypeCadenceNote": 1,
 						"IsPointe": false
-					},
-					
+					}
+				]
+			},
+			{
+				"Notes": [
 					{ 
 						"TypeNote": 2,
 						"TypeGamme": 1,
 						"TypeAlteration": 0,
-						"TypeCadenceNote": 1,
+						"TypeCadenceNote": 2,
 						"IsPointe": false
 					},
 					
 					{ 
-						"TypeNote": 3,
+						"TypeNote": 1,
 						"TypeGamme": 1,
 						"TypeAlteration": 0,
-						"TypeCadenceNote": 1,
+						"TypeCadenceNote": 2,
 						"IsPointe": false
 					}
 				]
@@ -47,47 +66,7 @@
 			{
 				"Notes": [
 					{ 
-						"TypeNote": 4,
-						"TypeGamme": 1,
-						"TypeAlteration": 0,
-						"TypeCadenceNote": 1,
-						"IsPointe": false
-					},
-					
-					{ 
-						"TypeNote": 5,
-						"TypeGamme": 1,
-						"TypeAlteration": 0,
-						"TypeCadenceNote": 1,
-						"IsPointe": false
-					},
-					{ 
-						"TypeNote": 6,
-						"TypeGamme": 1,
-						"TypeAlteration": 0,
-						"TypeCadenceNote": 1,
-						"IsPointe": false
-					},
-					{ 
-						"TypeNote": 5,
-						"TypeGamme": 1,
-						"TypeAlteration": 0,
-						"TypeCadenceNote": 1,
-						"IsPointe": false
-					}
-				]
-			},
-			{
-				"Notes": [
-					{ 
-						"TypeNote": 4,
-						"TypeGamme": 1,
-						"TypeAlteration": 0,
-						"TypeCadenceNote": 1,
-						"IsPointe": false
-					},
-					{ 
-						"TypeNote": 3,
+						"TypeNote": 0,
 						"TypeGamme": 1,
 						"TypeAlteration": 0,
 						"TypeCadenceNote": 1,
@@ -95,6 +74,13 @@
 					},
 					{ 
 						"TypeNote": 2,
+						"TypeGamme": 1,
+						"TypeAlteration": 0,
+						"TypeCadenceNote": 1,
+						"IsPointe": false
+					},
+					{ 
+						"TypeNote": 1,
 						"TypeGamme": 1,
 						"TypeAlteration": 0,
 						"TypeCadenceNote": 1,

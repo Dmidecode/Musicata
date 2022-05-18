@@ -10,10 +10,13 @@ namespace Assets.Scripts.Notes
   [Serializable]
   public class ManageMesure
   {
+    [NonSerialized]
     public float MesureTemps;
 
+    [NonSerialized]
     public bool MainDroite;
 
+    [NonSerialized]
     public Transform MesureStart;
 
     public List<Note> Notes;

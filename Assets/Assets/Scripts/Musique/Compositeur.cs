@@ -110,6 +110,24 @@ public class Compositeur : MonoBehaviour
     else if (Input.GetKeyDown(KeyCode.A))
     {
       AddNote(TypeNote.Do, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
+      AddNote(TypeNote.Re, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
+      AddNote(TypeNote.Mi, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
+      AddNote(TypeNote.Fa, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
+      AddNote(TypeNote.Sol, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
+      AddNote(TypeNote.La, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
+      AddNote(TypeNote.Si, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
+      //AddNote(TypeNote.Do, TypeCadenceNote.Noire, TypeGamme.Haute, TypeAlteration.None, false, true);
+      //AddNote(TypeNote.Si, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
+      AddNote(TypeNote.La, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
+      AddNote(TypeNote.Sol, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
+      AddNote(TypeNote.Fa, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
+      AddNote(TypeNote.Mi, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
+      AddNote(TypeNote.Re, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
+      AddNote(TypeNote.Do, TypeCadenceNote.Ronde, TypeGamme.Normale, TypeAlteration.None, false, true);
+    }
+    else if (Input.GetKeyDown(KeyCode.Z))
+    {
+      AddNote(TypeNote.Do, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
       AddNote(TypeNote.Do, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
       AddNote(TypeNote.Do, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
       AddNote(TypeNote.Re, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
@@ -120,20 +138,6 @@ public class Compositeur : MonoBehaviour
       AddNote(TypeNote.Re, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
       AddNote(TypeNote.Re, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, true);
       AddNote(TypeNote.Do, TypeCadenceNote.Ronde, TypeGamme.Normale, TypeAlteration.None, false, true);
-    }
-    else if (Input.GetKeyDown(KeyCode.Z))
-    {
-      AddNote(TypeNote.Do, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, false);
-      AddNote(TypeNote.Do, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, false);
-      AddNote(TypeNote.Do, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, false);
-      AddNote(TypeNote.Re, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, false);
-      AddNote(TypeNote.Mi, TypeCadenceNote.Blanche, TypeGamme.Normale, TypeAlteration.None, false, false);
-      AddNote(TypeNote.Re, TypeCadenceNote.Blanche, TypeGamme.Normale, TypeAlteration.None, false, false);
-      AddNote(TypeNote.Do, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, false);
-      AddNote(TypeNote.Mi, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, false);
-      AddNote(TypeNote.Re, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, false);
-      AddNote(TypeNote.Re, TypeCadenceNote.Noire, TypeGamme.Normale, TypeAlteration.None, false, false);
-      AddNote(TypeNote.Do, TypeCadenceNote.Blanche, TypeGamme.Normale, TypeAlteration.None, false, false);
     }
     else if (Input.GetKeyDown(KeyCode.E))
     {

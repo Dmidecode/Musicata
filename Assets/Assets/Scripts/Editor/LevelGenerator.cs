@@ -1,9 +1,12 @@
 using UnityEngine;
 using UnityEditor;
 using Assets.Scripts;
+using System.IO;
+using System.Linq;
 
 public class LevelGenerator : EditorWindow
 {
+  private string titre = "titre";
   private int level;
   private int selectedDifficulte = 0;
   private int selectedNSMD = 1;
@@ -30,8 +33,8 @@ public class LevelGenerator : EditorWindow
   {
     GuiLine();
     EditorGUILayout.Space();
-    EditorGUILayout.TextField("Titre", "Titre de la musique");
-    
+    titre = EditorGUILayout.TextField("Titre", titre);
+
     string[] optionsDifficulte = new string[]
     {
      "Facile", "Normal", "Difficile", "Beethoven",
@@ -48,17 +51,17 @@ public class LevelGenerator : EditorWindow
     string[] optionsTextNSMD = new string[] { "0", "1", "2" };
     selectedNSMD = EditorGUILayout.IntPopup("Nombre Système Main Droite", selectedNSMD, optionsTextNSMD, optionsNSMD);
 
-    
+
     int[] optionsNSMG = new int[] { 0, 1, 2 };
     string[] optionsTextNSMG = new string[] { "0", "1", "2" };
     selectedNSMG = EditorGUILayout.IntPopup("Nombre Système Main Gauche", selectedNSMG, optionsTextNSMG, optionsNSMG);
 
-    
+
     int[] optionsSignatureDiese = new int[] { 0, 1, 2, 3 };
     string[] optionsTextSignatureDiese = new string[] { "0", "1", "2", "3" };
     selectedSignatureDiese = EditorGUILayout.IntPopup("Nombre Signature Dièse", selectedSignatureDiese, optionsTextSignatureDiese, optionsSignatureDiese);
 
-    
+
     int[] optionsSignatureBemol = new int[] { 0, 1, 2, 3 };
     string[] optionsTextSignatureBemol = new string[] { "0", "1", "2", "3" };
     selectedSignatureBemol = EditorGUILayout.IntPopup("Nombre Signature Bemol", selectedSignatureBemol, optionsTextSignatureBemol, optionsSignatureBemol);
@@ -125,8 +128,31 @@ public class LevelGenerator : EditorWindow
 
   public void GenererFichier()
   {
-    //ConfigurationLevel configuration = new ConfigurationLevel();
+    ConfigurationLevel configuration = new ConfigurationLevel();
+    configuration.Difficulte = (Difficulte)selectedDifficulte;
+    configuration.Titre = titre;
+    configuration.NombreSystemeMainDroite = selectedNSMD;
+    configuration.NombreSystemeMainGauche = selectedNSMG;
+    configuration.SignatureDiese = selectedSignatureDiese;
+    configuration.SignatureBemol = selectedSignatureBemol;
+    configuration.Tempo = tempo;
+    configuration.Temps = selectedTemps;
 
+    var mesuresDroite = Compositeur.Instance.GetMesuresMainDroite();
+    var mesuresGauche = Compositeur.Instance.GetMesuresMainGauche();
+    for (int i = 0; i < mesuresDroite.Length; i += 1)
+    {
+      if (mesuresDroite[i].Notes.Any())
+        configuration.Solution.MainDroite.Add(mesuresDroite[i]);
+    }
+    for (int i = 0; i < mesuresGauche.Length; i += 1)
+    {
+      if (mesuresGauche[i].Notes.Any())
+        configuration.Solution.MainGauche.Add(mesuresGauche[i]);
+    }
+
+    string jsonObject = JsonUtility.ToJson(configuration);
+    File.WriteAllText(Path.Combine(Application.dataPath, "Assets", "Resources", "Text", "Solutions", ((int)configuration.Difficulte).ToString(), $"{level.ToString()}.json"), jsonObject);
   }
 
   void GuiLine(int i_height = 1)

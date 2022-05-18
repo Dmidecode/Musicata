@@ -14,10 +14,12 @@ namespace Assets.Scripts
 
     public TypeNote TypeNote;
 
+    [NonSerialized]
     protected float Temps;
 
     public bool IsPointe;
 
+    [NonSerialized]
     public GameObject Sprite;
 
     public TypeGamme TypeGamme;

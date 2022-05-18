@@ -11,7 +11,8 @@ namespace Assets.Scripts
     Facile,
     Normal,
     Difficile,
-    Beethoven
+    Beethoven,
+    Dev = -1
   }
 
   public enum TypeAlteration

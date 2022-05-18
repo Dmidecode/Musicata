@@ -6,6 +6,12 @@ public class LoadScene : MonoBehaviour
 {
   private void Awake()
   {
-    GameManager.Instance.LoadConfigurationLevel(GameManager.Instance.Difficulte, GameManager.Instance.Level);
+    LoadConfigurationLevel();
+  }
+
+  public void LoadConfigurationLevel()
+  {
+    if (ConfigureLevelToLoad.Instance.Level > 0)
+      GameManager.Instance.LoadConfigurationLevel(ConfigureLevelToLoad.Instance.Difficulte, ConfigureLevelToLoad.Instance.Level);
   }
 }

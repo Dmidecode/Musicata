@@ -20,6 +20,7 @@ public class ManageMidi : MonoBehaviour
 
   int ticksPerNoire;
   int ticksPerCroche;
+  int ticksPerDoubleCroche;
   int ticksPerBlanche;
   int ticksPerRonde;
 
@@ -65,6 +66,7 @@ public class ManageMidi : MonoBehaviour
 
     ticksPerNoire = fileWriter.MPTK_DeltaTicksPerQuarterNote;
     ticksPerCroche = ticksPerNoire / 2;
+    ticksPerDoubleCroche = ticksPerNoire / 4;
     ticksPerBlanche = ticksPerNoire * 2;
     ticksPerRonde = ticksPerBlanche * 2;
   }
@@ -74,13 +76,13 @@ public class ManageMidi : MonoBehaviour
     Init(GameManager.Instance.GetTempo());
     var mesuresMainDroite = Compositeur.Instance.GetMesuresMainDroite();
     var mesuresMainGauche = Compositeur.Instance.GetMesuresMainGauche();
-    AddNoteMidi(mesuresMainDroite, tickMainDroite);
-    AddNoteMidi(mesuresMainGauche, tickMainGauche);
+    AddNotesMidi(mesuresMainDroite, tickMainDroite);
+    AddNotesMidi(mesuresMainGauche, tickMainGauche);
 
     PlayMidiSequence(callback);
   }
 
-  private void AddNoteMidi(ManageMesure[] mesures, long tick)
+  private void AddNotesMidi(ManageMesure[] mesures, long tick)
   {
     for (int i = 0; i < mesures.Length; i += 1)
     {
@@ -99,8 +101,7 @@ public class ManageMidi : MonoBehaviour
   public void PlayLevel()
   {
     MidiFilePlayer midiPlayer = FindObjectOfType<MidiFilePlayer>();
-    Debug.Log($"{GameManager.Instance.Difficulte} pouet <3 {GameManager.Instance.Level}");
-    midiPlayer.MPTK_MidiName = "BeinFriend";
+    midiPlayer.MPTK_MidiName = GameManager.Instance.GetTitreMusique();
     midiPlayer.MPTK_Play();
   }
 
@@ -153,7 +154,7 @@ public class ManageMidi : MonoBehaviour
 
   private int GetNoteCadenceMidi(Note note)
   {
-    int duration = 0;
+    int duration;
     switch (note.TypeCadenceNote)
     {
       case TypeCadenceNote.Croche:
@@ -206,7 +207,7 @@ public class ManageMidi : MonoBehaviour
     // On applique l'altération de la note
     if (note.TypeAlteration == TypeAlteration.Diese)
       valueNote += 1;
-    else
+    else if (note.TypeAlteration == TypeAlteration.Bemol)
       valueNote -= 1;
 
     return valueNote;
