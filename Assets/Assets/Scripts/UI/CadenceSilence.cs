@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CadenceSilence : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class CadenceSilence : MonoBehaviour
     private DropDownPicker DropDownPickerCadence;
 
     [SerializeField]
-    private List<GameObject> ShouldBeInactiveOnSilence;
+    private List<Selectable> ShouldBeInactiveOnSilence;
 
     public void WhenValueChanged()
     {
@@ -26,18 +27,20 @@ public class CadenceSilence : MonoBehaviour
         {
             if (chosendCadence.InitalValue == silence.ToString())
             {
-                foreach (GameObject shouldBeInactive in ShouldBeInactiveOnSilence)
+                foreach (Selectable shouldBeInactive in ShouldBeInactiveOnSilence)
                 {
-                    shouldBeInactive.SetActive(false);
+                    shouldBeInactive.interactable = false;
+                    //shouldBeInactive.SetActive(false);
                 }
 
                 return;
             }
         }
 
-        foreach (GameObject shouldBeInactive in ShouldBeInactiveOnSilence)
+        foreach (Selectable shouldBeInactive in ShouldBeInactiveOnSilence)
         {
-            shouldBeInactive.SetActive(true);
+            shouldBeInactive.interactable = true;
+            //shouldBeInactive.SetActive(true);
         }
     }
 }

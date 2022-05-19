@@ -62,5 +62,9 @@ MonoBehaviour:
     m_Localized: Parameters
     m_Metadata:
       m_Items: []
+  - m_Id: 1474440006729728
+    m_Localized: Stop
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
