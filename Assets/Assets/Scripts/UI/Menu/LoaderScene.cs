@@ -26,11 +26,11 @@ public class LoaderScene : MonoBehaviour
     DontDestroyOnLoad(gameObject);
   }
 
-  public async void LoadLevel()
+  public async void LoadLevel(string sceneName)
   {
     _target = 0;
     LoadingImage.fillAmount = 0;
-    var scene = SceneManager.LoadSceneAsync("PuzzleLevel");
+    var scene = SceneManager.LoadSceneAsync(sceneName);
     scene.allowSceneActivation = false;
 
     LoadingCanvas.SetActive(true);

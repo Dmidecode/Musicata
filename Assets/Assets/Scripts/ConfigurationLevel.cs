@@ -11,6 +11,7 @@ public class ConfigurationLevel
 {
   public Difficulte Difficulte;
   public string Titre;
+  public string Auteur;
   public int NombreSystemeMainDroite;
   public int NombreSystemeMainGauche;
   public int SignatureDiese;
@@ -28,6 +29,7 @@ public class ConfigurationLevel
   public override string ToString()
   {
     StringBuilder sb = new StringBuilder();
+    sb.AppendLine($"Auteur: {Auteur}");
     sb.AppendLine($"Titre: {Titre}");
     sb.AppendLine($"Difficulte: {Difficulte}");
     sb.AppendLine($"NombreSystemeMainDroite: {NombreSystemeMainDroite}");

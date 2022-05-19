@@ -10,6 +10,6 @@ public class ButtonLevel : MonoBehaviour
   public void LoadLevel()
   {
     ConfigureLevelToLoad.Instance.Level = Level;
-    LoaderScene.Instance.LoadLevel();
+    LoaderScene.Instance.LoadLevel("PuzzleLevel");
   }
 }

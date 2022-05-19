@@ -6,6 +6,7 @@ using System.Linq;
 
 public class LevelGenerator : EditorWindow
 {
+  private string auteur = "auteur";
   private string titre = "titre";
   private int level;
   private int selectedDifficulte = 0;
@@ -33,6 +34,7 @@ public class LevelGenerator : EditorWindow
   {
     GuiLine();
     EditorGUILayout.Space();
+    auteur = EditorGUILayout.TextField("Auteur", auteur);
     titre = EditorGUILayout.TextField("Titre", titre);
 
     string[] optionsDifficulte = new string[]

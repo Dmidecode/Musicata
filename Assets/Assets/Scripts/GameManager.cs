@@ -40,8 +40,8 @@ public class GameManager : MonoBehaviour
     ErreursMesure = new List<ErreurMesure>();
     if (SceneManager.GetActiveScene().name == "EditorLevel")
       LoadConfigurationLevel(Difficulte.Dev, -1);
-    else if (ConfigureLevelToLoad.Instance.Level > 0)
-      LoadConfigurationLevel(Difficulte.Facile, 1);
+    //else if (ConfigureLevelToLoad.Instance.Level <= 0)
+    //  LoadConfigurationLevel(Difficulte.Facile, 1);
   }
 
   public void ValidatePuzzle()
@@ -178,6 +178,11 @@ public class GameManager : MonoBehaviour
   public void SetTempo(int tempo)
   {
     this.Tempo = tempo;
+  }
+
+  public string GetAuteurMusique()
+  {
+    return configurationLevel.Auteur;
   }
 
   public string GetTitreMusique()
