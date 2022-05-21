@@ -66,5 +66,13 @@ MonoBehaviour:
     m_Localized: "Arr\xEAter"
     m_Metadata:
       m_Items: []
+  - m_Id: 1537602294906880
+    m_Localized: Menu Principal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1537709434208256
+    m_Localized: LevelSuivant
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

@@ -63,6 +63,14 @@ MonoBehaviour:
     m_Key: "Arr\xEAter"
     m_Metadata:
       m_Items: []
+  - m_Id: 1537602294906880
+    m_Key: MenuPrincipal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1537709434208256
+    m_Key: LevelSuivant
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

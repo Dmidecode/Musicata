@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,7 +29,6 @@ public class CadenceSilence : MonoBehaviour
                 foreach (Selectable shouldBeInactive in ShouldBeInactiveOnSilence)
                 {
                     shouldBeInactive.interactable = false;
-                    //shouldBeInactive.SetActive(false);
                 }
 
                 return;
@@ -40,7 +38,6 @@ public class CadenceSilence : MonoBehaviour
         foreach (Selectable shouldBeInactive in ShouldBeInactiveOnSilence)
         {
             shouldBeInactive.interactable = true;
-            //shouldBeInactive.SetActive(true);
         }
     }
 }

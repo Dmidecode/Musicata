@@ -66,5 +66,13 @@ MonoBehaviour:
     m_Localized: Stop
     m_Metadata:
       m_Items: []
+  - m_Id: 1537602294906880
+    m_Localized: Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1537709434208256
+    m_Localized: Next Level
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
