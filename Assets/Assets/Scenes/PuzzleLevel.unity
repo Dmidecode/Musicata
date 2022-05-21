@@ -5864,6 +5864,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoaderComposant
       objectReference: {fileID: 0}
+    - target: {fileID: 4002698219815747888, guid: 2cd043411dd8e55488b170fddf079fae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002698219815747892, guid: 2cd043411dd8e55488b170fddf079fae, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002698219815747892, guid: 2cd043411dd8e55488b170fddf079fae, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002698219815747892, guid: 2cd043411dd8e55488b170fddf079fae, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8498925210735060740, guid: 2cd043411dd8e55488b170fddf079fae, type: 3}
       propertyPath: m_RootOrder
       value: 13
