@@ -11,7 +11,7 @@ public class LoadScene : MonoBehaviour
 
   public void LoadConfigurationLevel()
   {
-    if (ConfigureLevelToLoad.Instance.Level > 0)
+    if (ConfigureLevelToLoad.Instance != null && ConfigureLevelToLoad.Instance.Level > 0)
       GameManager.Instance.LoadConfigurationLevel(ConfigureLevelToLoad.Instance.Difficulte, ConfigureLevelToLoad.Instance.Level);
   }
 }

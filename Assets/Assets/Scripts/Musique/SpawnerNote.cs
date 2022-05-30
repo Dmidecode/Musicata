@@ -143,7 +143,7 @@ public abstract class SpawnerNote : MonoBehaviour
           break;
       }
 
-      funcNote(note, mesure.IsMainDroite() ,mesure.MesureStart.position, mesure.GetPosition());
+      funcNote(note, mesure.IsMainDroite(), mesure.MesureStart.position, mesure.GetPosition());
 
       if (isPointe)
         Instantiate(Resources.Load("Prefab/Notes/Pointe") as GameObject, note.transform);
@@ -152,7 +152,7 @@ public abstract class SpawnerNote : MonoBehaviour
         AddAlteration(note, typeAlteration);
     }
     else
-      AddSilence(note, mesure.MesureStart.position, mesure.GetPosition());
+      AddSilence(note, mesure.MesureStart.position, mesure.GetPosition(), mesure.IsMainDroite());
 
     mesure.AddNote(typeCadenceNote, typeNote, TypeGamme, typeAlteration, isPointe, note);
 
@@ -176,9 +176,10 @@ public abstract class SpawnerNote : MonoBehaviour
     }
   }
 
-  private void AddSilence(GameObject note, Vector3 startPositionMesure, int positionDansMesure)
+  private void AddSilence(GameObject note, Vector3 startPositionMesure, int positionDansMesure, bool isMainDroite)
   {
-    note.transform.position = new Vector3(startPositionMesure.x + positionNoteToCm[positionDansMesure], note.transform.position.y, startPositionMesure.z);
+    float startMain = isMainDroite ? 0 : 2.5f;
+    note.transform.position = new Vector3(startPositionMesure.x + positionNoteToCm[positionDansMesure], startPositionMesure.y + note.transform.position.y - startMain, startPositionMesure.z);
   }
 
   private void LinkCroches(ManageMesure mesure)

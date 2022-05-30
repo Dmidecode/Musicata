@@ -3,6 +3,8 @@ using UnityEditor;
 using Assets.Scripts;
 using System.IO;
 using System.Linq;
+using MidiPlayerTK;
+using System.Collections.Generic;
 
 public class LevelGenerator : EditorWindow
 {
@@ -127,12 +129,12 @@ public class LevelGenerator : EditorWindow
       Debug.Log("Fichier généré");
     }
   }
-
   public void GenererFichier()
   {
     ConfigurationLevel configuration = new ConfigurationLevel();
     configuration.Difficulte = (Difficulte)selectedDifficulte;
     configuration.Titre = titre;
+    configuration.Auteur = auteur;
     configuration.NombreSystemeMainDroite = selectedNSMD;
     configuration.NombreSystemeMainGauche = selectedNSMG;
     configuration.SignatureDiese = selectedSignatureDiese;

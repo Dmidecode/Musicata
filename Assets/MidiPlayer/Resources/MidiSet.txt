@@ -12,9 +12,17 @@
   <IndexSelectedSF>0</IndexSelectedSF>
   <MidiFiles>
     <string>BeinFriend</string>
+    <string>Boys will be boys</string>
+    <string>CanonD</string>
     <string>Clair de Lune</string>
+    <string>CsikosPost</string>
+    <string>FurElise</string>
     <string>Gamme1</string>
     <string>Gamme2</string>
     <string>Gamme3</string>
+    <string>MenuetGMajor</string>
+    <string>ScarySkeleton</string>
+    <string>StillAlive</string>
+    <string>Wellerman</string>
   </MidiFiles>
 </MidiSet>

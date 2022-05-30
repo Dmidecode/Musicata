@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     if (SceneManager.GetActiveScene().name == "EditorLevel")
       LoadConfigurationLevel(Difficulte.Dev, -1);
     //else if (ConfigureLevelToLoad.Instance.Level <= 0)
-    //  LoadConfigurationLevel(Difficulte.Facile, 1);
+    LoadConfigurationLevel(Difficulte.Dev, -1);
   }
 
   public void ValidatePuzzle()
